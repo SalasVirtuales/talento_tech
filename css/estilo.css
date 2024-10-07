@@ -1,6 +1,6 @@
 :root {
-  --fondo-principal: peru;
-  --fondo-secundario: tomato;
+  --fondo-principal: rgb(37, 36,39);
+  --fondo-secundario: rgb(247, 12, 91);
 }
 html {
   font-size: 16px;
@@ -9,10 +9,30 @@ html {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  color: var(--fondo-secundario)
   }
 body {
   margin: 0;
   padding: 0;
 }
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100vw;
+}
+.logo img{
+    width: 150px;
+    height: 150px;
+    border-right: 6px solid var(--fondo-secundario);
+    border-radius: 50%;
+}
 
-
+#actividades img{
+  width: 100%;
+}
+#nosotros img{
+  width: 50%;
+}
+#equipo article img{
+  width: 25%;
+}
