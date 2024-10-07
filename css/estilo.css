@@ -1,0 +1,18 @@
+:root {
+  --fondo-principal: peru;
+  --fondo-secundario: tomato;
+}
+html {
+  font-size: 16px;
+  background-color: var(--fondo-principal);
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  }
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
