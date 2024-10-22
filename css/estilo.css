@@ -6,7 +6,7 @@
   --color-hover: aliceblue;
   --color-sombra-hover: 2px 4px 20px var(--color-text-blanco);
   --fuente-grande: 1.8rem;
-  --fuente-mediana: 1.25rem;
+  --fuente-mediana: 1.5rem;
   --fuente-chica: 1.0rem;
 }
 html {
@@ -41,6 +41,7 @@ h2{
   color: tomato;
   text-shadow: 2;
 }
+
 #text_work{
   color: var(--color-text-rojo);
 }
@@ -68,15 +69,17 @@ header{
  }
 /*HEADER-LOGO*/
 .logo{
-  width: 30%;
+  width: 100%;
   display: flex;
   align-items: center;
+  
 }
 .logo>img{
-    width: 5rem;
+    width: 4rem;
     height: auto;
     border-radius: 50%;
     filter: brightness(1.5);
+    
 }
 .logo h1{
   font-size: var(--fuente-mediana);
@@ -86,7 +89,7 @@ header{
 }
 /*HEADER - NAV*/
 nav{
-  width: 50%;
+  display: none;
 
 }
 
@@ -111,18 +114,21 @@ nav ul{
 /*MAIN*/
 main{
   max-width: 100%;
+ 
 }
 /*MAIN - BANER*/
 main #baner{
   width: 100%;
   height: auto;
   position: relative;
+  
 
 }
 #baner>img{
-  width: 100%;
-  min-width: 570px;
-  height: 90vh;
+  width: auto;
+  height: 100vh;
+  position: relative;
+  right: 250px;
   filter: brightness(1.1) saturate(1.5);
 
 }
@@ -131,50 +137,49 @@ main #baner{
 /*MAIN - BANER-TEXTO*/
 /*****************************************/
 .baner-texto{
-  max-width: 70%;
+  max-width: 100%;
   height: auto;
   /*border: 1px solid white;*/
   position: absolute;
   top: 20%;
-  left: 2.5%;
-  /*background-color: rgba(0, 0, 0, 0.5);*/
-  text-align: center;
+  right: 10.5%;
+  text-align: right;
 }
 .baner-texto>h2{
-  font-size: 4.375rem;
+  width: 100%;
+  font-size: 2rem;
   color: var(--color-text-rojo);
   text-shadow: 2px 2px 8px black;
 }
 
 .baner-texto>h3{
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: deepskyblue;
   text-shadow: 2px 2px 8px black;
-  text-align: right;
   position: absolute;
-  top: 40%;
+  top: 30%;
+  
 }
 .baner-texto>p{
   width: 100%;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: whitesmoke;
   text-shadow: 2px 2px 8px black;
-  text-align: left;
   position: relative;
-  top: 60%;
+  top: 70%;
 }
 .grupo-botones{
   width: 100%;
   height: auto;
   position: absolute;
-  top: 150%;
+  top: 120%;
   text-align: center;
  }
 .grupo-botones ul li{
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 25px;
-  width: 30%;
+  width: 70%;
   margin: auto;
   padding:10px;
   background-color: brown;
@@ -185,4 +190,79 @@ main #baner{
 }
 #equipo article img{
   width: 25%;
+}
+/***************************************/
+/*MEDIA QUERIES*/
+/***************************************/
+/*576px convertidoen em*/
+@media screen and (min-width:36em) {
+  .logo{
+    width: 30%;    
+  }
+  nav{
+    width: 50%;
+    display: block;
+  
+  }
+  .logo>img{
+    width: 5rem;
+    height: auto;
+    border-radius: 50%;
+    filter: brightness(1.5);
+  }
+  .logo h1{
+    font-size: var(--fuente-grande);
+    color: aliceblue;
+  
+    text-shadow: 1px 1px 10px black;
+  }
+  
+  .baner-texto{
+    max-width: 70%;
+    height: auto;
+    position: absolute;
+    top: 20%;
+    left: 0.5%;
+    
+    
+  }   
+  .baner-texto>h2{
+    font-size: 4.375rem;
+  }
+  .baner-texto>h3{
+    font-size: 2rem;
+    top: 40%;
+  }
+  .baner-texto>p{
+    width: 100%;
+    font-size: 1.3rem;
+    color: whitesmoke;
+    text-shadow: 2px 2px 8px black;
+    position: relative;
+    left: 0;
+    top: 50%;
+  }
+  #baner>img{
+    width: 100%;
+    min-width: 570px;
+    height: 90vh;
+    right: 0;
+    }
+    .grupo-botones ul li{
+      border: 1px solid white;
+      border-radius: 25px;
+      width: 30%;
+      margin: auto;
+      padding:10px;
+      background-color: brown;
+      
+    }
+}
+/*992px convertidoen em*/
+@media screen and (min-width:62em){
+
+}
+/*1200px convertidoen em*/
+@media screen and (min-width:75em){
+
 }
