@@ -1,45 +1,89 @@
+/******************************************/
+        /***Variables globales***/
+/******************************************/
 :root {
   --fondo-principal: rgb(37, 36,39);
+  --fondo-principal-opacidad:  rgba(37, 36,39, 0.5);
   --fondo-secundario: rgb(247, 12, 91);
   --color-text-rojo: rgb(255, 2, 2);
   --color-text-blanco: rgb(255,255,255);
   --color-hover: aliceblue;
   --color-sombra-hover: 2px 4px 20px var(--color-text-blanco);
-  --fuente-grande: 1.8rem;
-  --fuente-mediana: 1.5rem;
-  --fuente-chica: 1.0rem;
+  --fuente-grande: 2rem;
+  --fuente-mediana: 1.9rem;
+  --fuente-chica: 1.2rem;
+  --fuente:"Roboto Condensed", sans-serif;
+  --ancho-maximo: 1200px;
 }
-html {
-  font-size: 16px;
-  background-color: var(--fondo-principal);
-  font-family: "Roboto Condensed", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--fondo-secundario);
-  scroll-behavior: smooth;
+
+/******************************************/
+/***reseteador***/
+/******************************************/
+html{
+  box-sizing: border-box;
+  font-family: var(--fuente);
+  scroll-behavior: smooth;/*Desplazamiento lento de los enlaces*/
+  overflow-x: hidden; /*oculta barra de desplazamiento horizontal*/
   
-  
-  }
+}
+*, *::after, *::before{
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  color: var(--fondo-secundario);
 }
+
 a{
   text-decoration: none;
   color: var(--color-hover);
-  
+
+
 }
+
 a:hover{
+  opacity: 0.5;
   text-shadow: var(--color-sombra-hover);
   transition: text-shadow 0.5s ease-in-out;
 
 }
+img{
+  max-width: 100%;
+  height: auto;
+}
+p{
+    line-height: 1.5rem;
+}
+/******************************************/
+/***componentes***/
+/******************************************/
+
+/******************************************/
+/***Utilidad***/
+/******************************************/
+.oculto{
+  display: none;
+}
+.flexible{
+  display: flex;
+}
+
+/******************************************/
+/***Estilos***/
+/******************************************/
+html {
+   background-color: var(--fondo-principal);
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+
 h2{
   font-size: var(--fuente-grande);
-  color: tomato;
-  text-shadow: 2;
+  color: var(--color-text-rojo);
+  
 }
 
 #text_work{
@@ -51,9 +95,9 @@ p{
   
 }
 .container{
+  max-width: 100vw;
   margin-left: auto;
   margin-right: auto;
-  max-width: 100vw;
   }
 ul{
   list-style-type: none;
@@ -61,17 +105,24 @@ ul{
 }
 /*HEADER*/
 header{
- width: 90%;
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
+ width: 100%;
+ height: 15vh;
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 999;
+ display: flex;
+ justify-content: space-between;
+ margin-left: auto;
+ margin-right: auto;
+ background-color: rgba(0,0,0,1);
  }
 /*HEADER-LOGO*/
 .logo{
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: center;
+
   
 }
 .logo>img{
@@ -82,7 +133,7 @@ header{
     
 }
 .logo h1{
-  font-size: var(--fuente-mediana);
+  font-size: 1.5rem;
   color: aliceblue;
 
   text-shadow: 1px 1px 10px black;
@@ -102,8 +153,9 @@ nav ul{
   font-size: var(--fuente-mediana);
 
 }
+/*HEADER - BTN_INFO*/
 .btn_info{
-  width: 15%;
+  width: auto;
   height: 100px;
   display: flex;
   align-items: center;
@@ -111,158 +163,247 @@ nav ul{
   font-size: var(--fuente-mediana);
   text-align: center;
 }
-/*MAIN*/
-main{
-  max-width: 100%;
- 
-}
-/*MAIN - BANER*/
-main #baner{
-  width: 100%;
-  height: auto;
-  position: relative;
-  
 
-}
-#baner>img{
-  width: auto;
-  height: 100vh;
-  position: relative;
-  right: 250px;
-  filter: brightness(1.1) saturate(1.5);
-
-}
-
-/*****************************************/
-/*MAIN - BANER-TEXTO*/
-/*****************************************/
-.baner-texto{
-  max-width: 100%;
-  height: auto;
-  /*border: 1px solid white;*/
-  position: absolute;
-  top: 20%;
-  right: 10.5%;
-  text-align: right;
-}
-.baner-texto>h2{
-  width: 100%;
-  font-size: 2rem;
-  color: var(--color-text-rojo);
-  text-shadow: 2px 2px 8px black;
-}
-
-.baner-texto>h3{
-  width: 100%;
-  font-size: 1.2rem;
-  color: deepskyblue;
-  text-shadow: 2px 2px 8px black;
-  position: absolute;
-  top: 30%;
-  
-}
-.baner-texto>p{
-  width: 100%;
-  font-size: 1rem;
-  color: whitesmoke;
-  text-shadow: 2px 2px 8px black;
-  position: relative;
-  top: 70%;
-}
-.grupo-botones{
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 120%;
-  text-align: center;
- }
-.grupo-botones ul li{
-  border: 2px solid white;
-  border-radius: 25px;
-  width: 70%;
-  margin: auto;
-  padding:10px;
-  background-color: brown;
-  
-}
-#nosotros img{
-  width: 50%;
-}
-#equipo article img{
-  width: 25%;
-}
-/***************************************/
-/*MEDIA QUERIES*/
-/***************************************/
-/*576px convertidoen em*/
-@media screen and (min-width:36em) {
-  .logo{
-    width: 30%;    
-  }
-  nav{
-    width: 50%;
-    display: block;
-  
-  }
-  .logo>img{
-    width: 5rem;
-    height: auto;
-    border-radius: 50%;
-    filter: brightness(1.5);
-  }
-  .logo h1{
-    font-size: var(--fuente-grande);
-    color: aliceblue;
-  
-    text-shadow: 1px 1px 10px black;
-  }
-  
-  .baner-texto{
-    max-width: 70%;
+/*HEADER-GRUPO -BOTONES*/
+  .grupo-botones{
+    width: 80%;
     height: auto;
     position: absolute;
-    top: 20%;
-    left: 0.5%;
+    top: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;    
+   }
+  .grupo-botones ul li{
+    border: 2px solid white;
+    border-radius: 25px;
+    box-shadow: 2px 2px 6px white;
+    width: 80%;
+    padding:1rem;
+    background-color: brown;
     
-    
-  }   
-  .baner-texto>h2{
-    font-size: 4.375rem;
   }
-  .baner-texto>h3{
-    font-size: 2rem;
-    top: 40%;
+/*SECTION - BANER - TEXTO*/
+#baner{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: url(../img/just_word_02.jpg);
+  background-repeat: no-repeat;
+  background-position: 15% center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.baner-texto{
+width: 100%;
+height: 30%;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+.baner-texto h2{
+  color: var(--color-text-rojo);
+  text-shadow: 3px 3px 4px rgba(13, 13, 14, 0.75);
+  
   }
-  .baner-texto>p{
+
+.baner-texto h3{
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  text-align: right;
+  text-shadow: 2px 2px 8px black;
+  }
+
+.baner-texto p{
+  position: absolute;
+  top: 70%;
+  text-align: center;
+  text-shadow: 2px 2px 8px black;
+  }  
+
+  /*MAIN -SECTION - NOSOTROS*/
+  main{
     width: 100%;
-    font-size: 1.3rem;
-    color: whitesmoke;
-    text-shadow: 2px 2px 8px black;
+    height: auto;
     position: relative;
-    left: 0;
-    top: 50%;
+        
   }
-  #baner>img{
+  #nosotros{
+    width: 95%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .imagen-nosotros{
     width: 100%;
-    min-width: 570px;
-    height: 90vh;
-    right: 0;
-    }
-    .grupo-botones ul li{
-      border: 1px solid white;
-      border-radius: 25px;
-      width: 30%;
-      margin: auto;
-      padding:10px;
-      background-color: brown;
-      
-    }
-}
-/*992px convertidoen em*/
-@media screen and (min-width:62em){
+    border-radius: 0.25rem;
+    box-shadow: 2px 2px 2px rgb(180, 168, 158);
+  }
 
-}
-/*1200px convertidoen em*/
-@media screen and (min-width:75em){
+  .textos-nosotros{
+    width: 100%;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  #mision{
+    width: 100%;
+    height: 100%;
+  }
+  #mision .imagen-nosotros{
+    width: 100%;
+    height: 50%;
+    background-image: url(../img/lautaro_03.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center -150px;
+  }
+  #mision h3, p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+  }
 
-}
+  #vision{
+    width: 100%;
+    height: 80%;
+    position: relative;
+    top: 3rem;
+  }
+  #vision .imagen-nosotros{
+    width: 100%;
+    height: 50%;
+    background-image: url(../img/jonathan_just_work_02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #vision p{
+     padding-bottom: 1.6rem;
+  }
+  /*MAIN - SECTION - TIENDA ONLINE*/
+  #tienda-online{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .cards{
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1.2rem;
+    margin-bottom: 0.85rem;
+    
+  }
+  
+  .card img {
+    width: 100%;
+    min-height: 350px;
+    object-fit: cover;
+    
+  }
+  
+  .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between
+    
+  }
+  .card button, input[type="submit"]{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.6rem;
+    background-color: chartreuse;
+    color: orangered;
+    font-weight: 700;
+    border-radius: 1.5rem;
+    
+  }
+  /*MAIN - SECTION - INFORMACION*/
+  #informacion{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+  }
+   form{
+    
+   }
+
+   /*FOOTER*/
+   footer{
+    width: 100%;
+    height: 30vh;
+    position: relative;
+    left: 0.8rem;
+    top: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    
+   }
+   footer h2{
+    width: 90%;
+    font-size: 1.2rem;
+    justify-content: center;
+
+    
+   }
+   footer p, ul li{
+    width: 90%;
+    font-size: 0.7rem;
+    justify-content: center;
+    
+    
+   }
+   #pie{
+    width: 30%;
+    
+   }
+   
+      .horario_footer{
+       width: 40%;
+    
+      }
+
+   .redes_sociales{
+    width: 30%;
+    
+    
+   }
